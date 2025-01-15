@@ -1,0 +1,131 @@
+@use "sass:map";
+
+.ntg-card-carousel {
+    overflow-x: clip;
+
+    h2 {
+        margin-bottom: 2rem;
+    }
+
+    .flickity-carousel {
+        @media (max-width: 1500px) {
+            width: calc(100% - 66px);
+        }
+
+        @media (min-width: 1500px) {
+            width: 100%;
+        }
+
+        @include media-breakpoint-down(sm) {
+            width: calc(100% - 52px);
+        }
+    }
+
+    .carousel-cell {
+        width: 100%;
+        margin-right: 0.5rem;
+
+        @include media-breakpoint-up(md) {
+            width: calc((100% - 2rem) / 2);
+            margin-right: 1rem;
+        }
+        
+        @include media-breakpoint-up(lg) {
+            width: calc((100% - 2rem) / 3);
+            margin-right: 1rem;
+        }
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    }
+
+    .flickity-button {
+        background-color: $rg-yellow;
+        border: 2px solid transparent;
+        width: 50px;
+        height: 50px;
+        transition: 0.15s background-color ease-in-out, .15s border-color;
+
+        @include media-breakpoint-down(sm) {
+            width: 40px;
+            height: 40px;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: tint-color($rg-yellow, $btn-hover-bg-tint-amount);
+
+            .flickity-button-icon {
+                fill: color-contrast($rg-yellow);
+            }
+        }
+
+        &:focus {
+            @include focus();
+        }
+
+        .flickity-button-icon {
+            fill: $rg-dark-grey;
+            width: 35%;
+            height: 35%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.15s fill ease-in-out;
+        }
+
+        &:disabled {
+            opacity: 1;
+            background-color: rgba($rg-grey, 0.4);
+        }
+
+        &.flickity-prev-next-button {
+            &.previous {
+                left: calc(100% + 16px);
+            }
+
+            &.next {
+                right: -66px;
+            }
+        }
+
+        @media (max-width: 1500px) {
+            &.flickity-prev-next-button {
+                &.previous {
+                    top: calc(50% - 33px);
+                }
+
+                &.next {
+                    top: calc(50% + 33px);
+                }
+            }
+        }
+
+        @media (min-width: 1500px) {
+            &.flickity-prev-next-button {
+                &.previous {
+                    left: -66px;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            &.flickity-prev-next-button {
+                &.previous {
+                    top: calc(50% - 26px);
+                    left: calc(100% + 12px);
+                }
+
+                &.next {
+                    top: calc(50% + 26px);
+                    right: -52px;
+                }
+            }
+        }
+    }
+}
+

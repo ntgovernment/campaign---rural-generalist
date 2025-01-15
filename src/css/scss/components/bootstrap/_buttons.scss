@@ -1,0 +1,51 @@
+.btn {
+    &:focus {
+        @include focus();
+    }
+
+    &-chevron-right {
+        @include btn-icon("\f054");
+    }
+
+    &-chevron-left {
+        @include btn-icon("\f053", $reverse: true);
+    }
+
+    &-arrow-right {
+        @include btn-icon("\f061");
+    }
+
+    &-external {
+        @include btn-icon("\f35d", $animation: false);
+    }
+
+    &-close {
+        &:focus {
+            @include focus();
+        }
+    }
+
+    &-yellow {
+        @include button-variant($rg-yellow, $rg-yellow, $rg-dark-grey);
+    }
+
+    &-outline-yellow {
+        @include button-outline-variant($rg-yellow);
+    }
+
+    &-orange {
+        @include button-variant($rg-orange, $rg-orange, $white);
+    }
+
+    &-outline-orange {
+        @include button-outline-variant($rg-orange, $white);
+    }
+
+    &-black {
+        @include button-variant($black, $black, $white);
+    }
+
+    &-outline-black {
+        @include button-outline-variant($black);
+    }
+}

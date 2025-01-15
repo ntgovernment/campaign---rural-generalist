@@ -1,0 +1,70 @@
+@use "sass:map";
+
+.ntg-introduction {
+    &__content {
+        text-align: center;
+
+        > * {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &.decoration {
+        overflow-x: clip;
+        position: relative;
+
+        .container-slim {
+            position: relative;
+            z-index: 1;
+            
+            @include media-breakpoint-down(sm) {
+                max-width: calc(100% - 100px);
+            }
+
+            @each $breakpoint, $max-width in $container-max-widths {
+                @if $breakpoint == sm or $breakpoint == md {
+                    @include media-breakpoint-up($breakpoint) {
+                        max-width: calc($max-width - 150px);
+                    }
+                }
+
+                @if $breakpoint == lg or $breakpoint == xl or $breakpoint == xxl {
+                    @include media-breakpoint-up($breakpoint) {
+                        max-width: $max-width;
+                    }
+                }
+            }
+        }
+
+        &::before {
+            content: '';
+            background-image: url('../assets/css-images/yellow-dots.svg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 339px;
+            height: 114px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(0, 40px) rotate(141deg);
+
+            @media (max-width: 1600px) {
+                transform: translate(-100px, 40px) rotate(141deg);
+            }
+
+            @include media-breakpoint-down(lg) {
+                width: calc(339px * 0.9);
+                height: calc(114px * 0.9);
+                transform: translate(-150px, 40px) rotate(141deg);
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: calc(339px * 0.6);
+                height: calc(118px * 0.6);
+                transform: translate(-100px, 25px) rotate(141deg);
+            }
+        }
+    }
+}

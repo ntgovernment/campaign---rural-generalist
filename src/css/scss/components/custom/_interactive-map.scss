@@ -1,0 +1,15 @@
+.interactive-map {
+    #NT g:not(.exclude) {
+        cursor: pointer;
+
+        path {
+            transition: 0.2s fill ease-in-out;
+        }
+
+        &:hover {
+            path:not(.exclude) {
+                fill: $rg-orange;
+            }
+        }
+    }
+}

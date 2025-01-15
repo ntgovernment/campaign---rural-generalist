@@ -1,0 +1,152 @@
+.ntg-footer {
+    $this: &;
+    color: $white;
+
+    .row {
+        align-items: center;
+        row-gap: 1rem;
+    }
+
+    ul {
+        @extend .list-unstyled;
+        margin-bottom: 0;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+    }
+
+    a {
+        color: inherit;
+        font-size: $font-size-sm;
+        text-underline-offset: $text-underline-offset;
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    h2 {
+        font-family: $font-ubuntu;
+        @include font-size($h6-font-size);
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+    }
+
+    p {
+        font-size: $font-size-sm;
+        margin: 0;
+    }
+
+    &__logo {
+        display: block;
+        max-width: 200px;
+        min-width: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__message {
+        margin-top: 3rem;
+
+        @include media-breakpoint-down(lg) {
+            margin-top: 1rem;
+        }
+    }
+
+    &__top {
+        background-color: $rg-dark-grey;
+        padding: 2rem 0;
+
+        @include media-breakpoint-down(lg) {
+            padding: 1.5rem 0;
+        }
+
+        #{$this}__links {
+            ul {
+                justify-content: center;
+                column-gap: 3rem;
+
+                @include media-breakpoint-down(xl) {
+                    column-gap: 1rem;
+                }
+
+                @include media-breakpoint-down(lg) {
+                    flex-direction: column;
+                }
+            }
+
+            a {
+                text-decoration-thickness: 1px;
+            }
+        }
+
+        #{$this}__socials {
+            ul {
+                gap: 0.5rem;
+
+                @include media-breakpoint-up(lg) {
+                    justify-content: flex-end;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                width: 48px;
+                height: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid $white;
+                border-radius: 50%;
+                transition: 0.2s background-color ease-in-out;
+
+                @include media-breakpoint-down(xl) {
+                    width: 45px;
+                    height: 45px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                &:hover,
+                &:focus {
+                    background-color: $white;
+
+                    i {
+                        color: $rg-dark-grey;
+                    }
+                }
+            }
+
+            i {
+                transition: 0.2s color ease-in-out;
+            }
+        }
+    }
+
+    &__bottom {
+        background-color: $ntg-charcoal-grey;
+        padding: 0.5rem 0;
+        font-weight: 700;
+
+        ul {
+            gap: 0 0.5rem;
+        }
+
+        i {
+            margin-left: 0.25rem;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+}

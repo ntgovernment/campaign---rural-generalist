@@ -1,0 +1,15 @@
+.ntg-partners {
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__partner {
+        img {
+            @extend .img-fluid;
+            max-height: 80px;
+        }
+    }
+}

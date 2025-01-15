@@ -1,0 +1,52 @@
+nav[aria-label="breadcrumb"] {
+    background-color: #737373;
+    color: $white;
+}
+
+.breadcrumb {
+    font-size: $font-size-sm;
+    padding: 11px 0;
+
+    &-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: calc(30ch + 16.75px + $breadcrumb-item-padding-x);
+        margin-right: calc($breadcrumb-item-padding-x - 4px);
+        padding: 0 4px 4px 0;
+
+        a {
+            color: inherit;
+            font-weight: 700;
+            text-underline-offset: $text-underline-offset;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        + .breadcrumb-item {
+            padding-left: 0;
+
+            &::before {
+                @extend .fa;
+                content: '\f054';
+                font-size: 0.8rem;
+                margin-top: 1px;
+            }
+        }
+
+        &:has(:focus-visible) {
+            @include focus();
+        }
+
+        &.active {
+            margin-top: 1px;
+        }
+    }
+}

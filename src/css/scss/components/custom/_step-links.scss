@@ -1,0 +1,360 @@
+.ntg-step-links {
+    $this: &;
+    background-color: $primary;
+    color: $white;
+    overflow-x: clip;
+    --arrows-spacing: 2rem;
+    --title-max-width: 250px;
+
+    @mixin title-max-width() {
+        #{$this}__title {
+            max-width: var(--title-max-width);
+        }
+    }
+
+    @mixin dots-vertical-position() {
+        #{$this}__icon {
+            &::after {
+                right: 50%;
+                transform: translate(calc(var(--title-max-width) * -1 / 2 + 50% + ($container-padding-x / 2)), calc(var(--icon-size) + 3rem - 5px)) rotate(-105deg);
+            }
+        }
+
+        #{$this}__item {
+            &:nth-child(even) {
+                #{$this}__icon {
+                    &::after {
+                        transform: translate(calc(var(--title-max-width) / 2 + 50% - ($container-padding-x / 2)), calc(var(--icon-size) + 3rem - 5px)) rotate(77deg);
+                    }
+                }
+            }
+        }
+    }
+
+    @mixin arrows-vertical-position() {
+        #{$this}__title {
+            &::after {
+                top: 100%;
+                right: 50%;
+                transform: translate(50%, calc(3.5rem - (var(--arrow-width) / 2))) rotate(174deg);
+            }
+        }
+    }
+
+    &__wrapper {
+        @extend .row;
+        row-gap: 2rem;
+        margin-top: 2rem;
+        justify-content: center;
+
+        /* has 1 items */
+        &:has(.ntg-step-links__item:first-child:nth-last-child(1)) {
+            @extend .row-cols-1;
+
+            #{$this}__title {
+                width: unset;
+            }
+        }
+
+        /* has 2 items */
+        &:has(.ntg-step-links__item:first-child:nth-last-child(2)) {
+            @extend .row-cols-1;
+            @extend .row-cols-lg-2;
+            --between-lg-xl-padding: 10rem;
+            --between-xl-xxl-padding: 15rem;
+            --above-xxl-padding: 20rem;
+
+            @include media-breakpoint-down(lg) {
+                row-gap: 4rem;
+            }
+        
+            #{$this}__item {
+                @include media-breakpoint-up(lg) {
+                    &:not(:last-child) {
+                        padding-right: var(--arrows-spacing);
+                    }
+        
+                    &:not(:first-child) {
+                        padding-left: var(--arrows-spacing);
+                    }
+                }
+        
+                @include media-breakpoint-between(lg, xl) {
+                    &:first-child {
+                        padding-left: var(--between-lg-xl-padding);
+                    }
+
+                    &:last-child {
+                        padding-right: var(--between-lg-xl-padding);
+                    }
+                }
+
+                @include media-breakpoint-between(xl, xxl) {
+                    &:first-child {
+                        padding-left: var(--between-xl-xxl-padding);
+                    }
+                
+                    &:last-child {
+                        padding-right: var(--between-xl-xxl-padding);
+                    }
+                }
+
+                @include media-breakpoint-up(xxl) {
+                    &:first-child {
+                        padding-left: var(--above-xxl-padding);
+                    }
+        
+                    &:last-child {
+                        padding-right: var(--above-xxl-padding);
+                    }
+                }
+            }
+        
+            @include media-breakpoint-down(lg) {
+                @include title-max-width();
+                @include dots-vertical-position();
+                @include arrows-vertical-position();
+            }
+        }
+
+        /* has 3 items */
+        &:has(.ntg-step-links__item:first-child:nth-last-child(3)) {
+            @extend .row-cols-1;
+            @extend .row-cols-lg-3;
+            --above-xxl-padding: 5rem;
+
+            @include media-breakpoint-down(lg) {
+                row-gap: 4rem;
+            }
+
+            #{$this}__item {
+                @include media-breakpoint-up(lg) {
+                    &:not(:last-child) {
+                        padding-right: var(--arrows-spacing);
+                    }
+
+                    &:not(:first-child) {
+                        padding-left: var(--arrows-spacing);
+                    }
+                }
+
+                @include media-breakpoint-up(xxl) {
+                    &:first-child {
+                        padding-left: var(--above-xxl-padding);
+                    }
+
+                    &:last-child {
+                        padding-right: var(--above-xxl-padding);
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(lg) {
+                @include title-max-width();
+                @include dots-vertical-position();
+                @include arrows-vertical-position();
+            }
+        }
+
+        /* has 4 items */
+        &:has(.ntg-step-links__item:first-child:nth-last-child(4)) {
+            @extend .row-cols-1;
+            @extend .row-cols-sm-2;
+            @extend .row-cols-xxl-4;
+            --between-md-lg-padding: 4rem;
+            --between-lg-xl-padding: 10rem;
+            --between-xl-xxl-padding: 15rem;
+
+            @include media-breakpoint-down(sm) {
+                row-gap: 4rem;
+            }
+
+            #{$this}__item {
+                @include media-breakpoint-between(sm, xxl) {
+                    &:nth-child(odd) {
+                        padding-right: var(--arrows-spacing);
+                    }
+            
+                    &:nth-child(even) {
+                        padding-left: var(--arrows-spacing);
+
+                        #{$this}__icon,
+                        #{$this}__title {
+                            &::after {
+                                content: none;
+                            }
+                        }
+                    }
+                }
+            
+                @include media-breakpoint-between(md, lg) {
+                    &:nth-child(odd) {
+                        padding-left: var(--between-md-lg-padding);
+                    }
+            
+                    &:nth-child(even) {
+                        padding-right: var(--between-md-lg-padding);
+                    }
+                }
+            
+                @include media-breakpoint-between(lg, xl) {
+                    &:nth-child(odd) {
+                        padding-left: var(--between-lg-xl-padding);
+                    }
+            
+                    &:nth-child(even) {
+                        padding-right: var(--between-lg-xl-padding);
+                    }
+                }
+            
+                @include media-breakpoint-between(xl, xxl) {
+                    &:nth-child(odd) {
+                        padding-left: var(--between-xl-xxl-padding);
+                    }
+            
+                    &:nth-child(even) {
+                        padding-right: var(--between-xl-xxl-padding);
+                    }
+                }
+            
+                @include media-breakpoint-up(xxl) {
+                    &:not(:first-child) {
+                        padding-left: var(--arrows-spacing);
+                    }
+            
+                    &:not(:last-child) {
+                        padding-right: var(--arrows-spacing);
+                    }
+                }
+            }
+
+            #{$this}__icon {
+                &::after {
+                    @include media-breakpoint-between(sm, md) {
+                        width: 190px;
+                    }
+                }
+            }     
+
+            @include media-breakpoint-down(sm) {
+                @include title-max-width();
+                @include dots-vertical-position();
+                @include arrows-vertical-position();
+            }
+        }
+    }
+
+    &__item {
+        @extend .col;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        &:last-child {
+            #{$this}__title,
+            #{$this}__icon {
+                &::after {
+                    content: none;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            #{$this}__icon {
+                &::after {
+                    transform: translate(50%, calc(var(--icon-size) * -1 / 2 - 50% + 15px)) rotate(9deg) scaleY(-1);
+                }
+            }
+        }
+    }
+    
+    &__icon {
+        background-color: $white;
+        --icon-size: 74px;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.5rem;
+
+        &::after {
+            content: '';
+            background-image: url('../assets/css-images/yellow-dots.svg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 210px;
+            height: 74px;
+            position: absolute;
+            top: var(--icon-size);
+            right: 0;
+            transform: translate(50%, calc(var(--icon-size) * -1 / 2 - 50%)) rotate(-9deg);
+        }
+    }
+
+    &__title {
+        @include title-decoration();
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+
+        h3 {
+            font-family: $font-ubuntu;
+            font-size: $font-size-base;
+            font-weight: 700;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        &::after {
+            content: '';
+            background-image: url('../assets/css-images/orange-arrow.svg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            --arrow-width: 29px;
+            width: var(--arrow-width);
+            height: 39px;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(calc(var(--arrows-spacing) + (var(--arrow-width) / 2)), -50%) rotate(79deg);
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        color: inherit;
+        font-weight: 700;
+        text-decoration: none;
+        text-underline-offset: $text-underline-offset;
+        white-space: nowrap;
+
+        i {
+            transition: 0.2s margin ease-in-out;
+
+            &.fa-circle-plus {
+                margin-right: 0.5rem;
+            }
+
+            &.fa-chevron-right {
+                margin-left: 0.5rem;
+            }
+        }
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+
+            i {
+                &.fa-chevron-right {
+                    margin-left: 1rem;
+                    margin-right: -0.5rem;
+                }
+            }
+        }
+    }
+}

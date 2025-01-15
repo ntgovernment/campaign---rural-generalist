@@ -1,0 +1,165 @@
+.ntg-banner {
+    $this: &;
+
+    .ratio {
+        &:before {
+            padding-top: 350px;
+        }
+    }
+
+    .container,
+    &__text {
+        height: 100%;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 100%;
+
+        &:has(.ntg-banner__side-image) {
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            #{$this}__text {
+                @include media-breakpoint-down(sm) {
+                    order: 2;
+
+                    h1 {
+                        text-align: center;
+                    }
+                }
+            }
+
+            #{$this}__side-image {
+                @include media-breakpoint-down(sm) {
+                    order: 1;
+                }
+            }
+        }
+    }
+
+    &__text {
+        height: max-content;
+        margin-bottom: 4rem;
+
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 2rem;
+        }
+
+        &:has(h1 div) {
+            @include media-breakpoint-down(sm) {
+                @include title-decoration();
+                margin-left: 0;
+                margin-right: 0;
+
+                h1 {
+                    @include font-size($h2-font-size);
+                }
+            }
+
+            @include media-breakpoint-up(sm) {
+                h1 {
+                    margin-bottom: 0;
+            
+                    div {
+                        width: fit-content;
+                        position: relative;
+            
+                        &::before {
+                            content: '';
+                            background-image: url('../assets/css-images/rectangle.svg');
+                            background-size: 100% 100%;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                        }
+            
+                        span {
+                            display: block;
+                            color: $body-color;
+                            position: relative;
+                            padding: 0.5rem 1.5rem;
+                            margin-bottom: 0;
+                        }
+            
+                        &:first-child {
+                            &::before {
+                                bottom: -0.5rem;
+                            }
+                        }
+            
+                        &:not(:first-child) {
+                            &::before {
+                                top: -0.5rem;
+                            }
+            
+                            span {
+                                padding-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &:not(:has(h1 div)) {
+            @include title-decoration();
+            margin-left: 0;
+            margin-right: 0;
+        
+            h1 {
+                text-align: left;
+        
+                @include media-breakpoint-down(md) {
+                    @include font-size($h2-font-size);
+                }
+            }
+        }
+    }
+
+    img {
+        object-fit:cover;
+        display: block;
+        width: 100%;
+    }
+
+    &__side-image {
+        width: 50%;
+        height: 100%;
+        margin-bottom: -5rem;
+
+        @include media-breakpoint-down(lg) {
+            margin-bottom: -1rem;
+        }
+
+        @include media-breakpoint-down(sm) {
+            width: 60%;
+            height: min-content;
+            margin-bottom: 0;
+        }
+
+        img {
+            object-fit: contain;
+            object-position: right bottom;
+            height: 100%;
+        }
+    }
+
+    &--news {
+        .ratio {
+            &:before {
+                padding-top: clamp(350px, var(--bs-aspect-ratio), 450px); // min and max banner size
+            }
+        }
+    }
+}

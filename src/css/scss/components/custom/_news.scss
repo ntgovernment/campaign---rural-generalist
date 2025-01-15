@@ -1,0 +1,23 @@
+.ntg-news-item {
+    &__metadata {
+        color: $text-muted;
+        border-left: 2px solid $rg-orange;
+        margin: 0 0 2rem 0.5rem;
+        padding: 0 0 0 0.5rem;
+
+        &:first-of-type {
+            border-left: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+
+    &__date {
+        margin-bottom: 0;
+    }
+
+    h1 {
+        @include font-size($h3-font-size);
+        margin-bottom: 2rem;
+    }
+}

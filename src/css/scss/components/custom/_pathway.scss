@@ -1,0 +1,130 @@
+.ntg-pathway {
+    $this: &;
+
+    .row {
+        align-items: stretch;
+    }
+
+    &__pathway {
+        background-color: $primary;
+        color: $white;
+        padding: 5rem calc($container-padding-x / 2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        @include media-breakpoint-down(lg) {
+            padding: 3rem calc($container-padding-x / 2);
+        }
+    }
+
+    &__icon {
+        background-color: $white;
+        width: 106px;
+        height: 106px;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        @include media-breakpoint-down(sm) {
+            width: 90px;
+            height: 90px;
+        }
+
+        img {
+            @include media-breakpoint-down(sm) {
+                height: 46px;
+            }
+        }
+    }
+
+    &__title {
+        @include title-decoration();
+        margin-top: 2rem;
+
+        @include media-breakpoint-down(sm) {
+            margin-top: 1rem;
+        }
+
+        h2 {
+            @include font-size($h4-font-size);
+        }
+    }
+
+    &__content {
+        @extend .container;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    
+        @include media-breakpoint-up(lg) {
+            padding: 5rem 3rem;
+            max-width: 100%;
+        }
+
+        h3 {
+            @include font-size($h2-font-size);
+            
+            @include media-breakpoint-up(sm) {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .btn {
+            border-width: 1px;
+            padding-left: 64px;
+            padding-right: 64px;
+            background-color: $white;
+            
+            @include media-breakpoint-up(sm) {
+                margin-top: 1rem;
+            }
+
+            &:hover {
+                background-color: black;
+            }
+        }
+    }
+
+    &--primary {
+        #{$this}__pathway {
+            background-color: $primary;
+        }
+    }
+
+    &--secondary {
+        #{$this}__pathway {
+            background-color: $rg-dark-blue-2;
+        }
+
+        .row > div:last-child {
+            background-color: $light;
+        }
+    }
+
+    + .ntg-pathway {
+        #{$this}__pathway {
+            position: relative;
+
+            &::before {
+                content: '';
+                background-image: url('../assets/css-images/orange-arrow.svg');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                width: 69px;
+                height: 93px;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(172deg);
+
+                @include media-breakpoint-down(lg) {
+                    width: calc(69px * 0.6);
+                    height: calc(93px * 0.6);
+                }
+            }
+        }
+    }
+}

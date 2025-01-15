@@ -1,0 +1,105 @@
+@use "sass:map";
+
+.ntg-columns {
+    &__image {
+        width: 100%;
+        object-fit: cover;
+
+        @include media-breakpoint-down(sm) {
+            max-height: 300px;
+        }
+    }
+
+    &.decoration {
+        position: relative;
+        overflow-x: clip;
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: calc(100% - 100px);
+    
+            @each $breakpoint, $max-width in $container-max-widths {
+                @if $breakpoint == sm or $breakpoint == md {
+                    @include media-breakpoint-up($breakpoint) {
+                        max-width: calc($max-width - 100px);
+                    }
+                }
+
+                @if $breakpoint == lg or $breakpoint == xl or $breakpoint == xxl {
+                    @include media-breakpoint-up($breakpoint) {
+                        max-width: calc($max-width - 200px);
+                    }
+                }
+            }
+    
+            @media (min-width: 1800px) {
+                max-width: map.get($container-max-widths, xxl);
+            }
+        }
+        
+        &::before {
+            content: '';
+            background-image: url('../assets/css-images/yellow-dots.svg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 339px;
+            height: 118px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(-150px, 85px) rotate(118deg);
+
+            @include media-breakpoint-down(xl) {
+                transform: translate(-190px, 80px) rotate(118deg);
+            }
+
+            @include media-breakpoint-down(lg) {
+                width: calc(339px * 0.9);
+                height: calc(118px * 0.9);
+                transform: translate(-175px, 80px) rotate(118deg);
+            }
+
+            @include media-breakpoint-down(md) {
+                width: calc(339px * 0.6);
+                height: calc(118px * 0.6);
+                transform: translate(-100px, 55px) rotate(118deg);
+            }
+            
+            @include media-breakpoint-down(sm) {
+                width: calc(339px * 0.6);
+                height: calc(118px * 0.6);
+                transform: translate(-125px, 55px) rotate(118deg);
+            }
+        }
+
+        &::after {
+            content: '';
+            background-image: url('../assets/css-images/yellow-dots.svg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 339px;
+            height: 118px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(100px, -40px) rotate(-40deg);
+
+            @include media-breakpoint-down(xl) {
+                transform: translate(150px, -40px) rotate(-40deg);
+            }
+
+            @include media-breakpoint-down(lg) {
+                width: calc(339px * 0.9);
+                height: calc(118px * 0.9);
+                transform: translate(190px, -40px) rotate(-40deg);
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: calc(339px * 0.8);
+                height: calc(118px * 0.8);
+                transform: translate(190px, -35px) rotate(-40deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,191 @@
+.ntg-map-tabs {  
+    background-color: $primary;
+    color: $white;
+    padding: 3rem 0;
+    overflow: hidden;
+
+    &__headings {
+        text-align: center;
+    }
+
+    &__subheading {
+        display: block;
+        font-family: $font-ubuntu;
+        font-size: $font-size-xs;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+    }
+
+    &__heading {
+        @include font-size($h1-font-size);
+    }
+
+    .nav {
+        --#{$prefix}nav-link-padding-x: 0.5rem;
+        --#{$prefix}nav-link-padding-y: 1.5rem;
+        --#{$prefix}nav-link-color: inherit;
+        --#{$prefix}nav-link-hover-color: inherit;
+
+        margin-top: 2rem;
+
+        &-tabs {
+            --#{$prefix}nav-tabs-border-width: 3px;
+            --#{$prefix}nav-tabs-border-color: transparent;
+            --#{$prefix}nav-tabs-border-radius: 0;
+            --#{$prefix}nav-tabs-link-hover-border-color: inherit;
+            --#{$prefix}nav-tabs-link-active-color: inherit;
+            --#{$prefix}nav-tabs-link-active-bg: transparent;
+            --#{$prefix}nav-tabs-link-active-border-color: inherit;
+
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+
+            &.flickity-enabled {
+                display: block;
+                padding: 0 50px;
+
+                .nav-item {
+                    width: 100%;
+                    padding-bottom: var(--bs-nav-tabs-border-width, 3px);
+
+                    button {
+                        width: 100%;
+                    }
+                }
+
+                .flickity-button {
+                    background-color: transparent;
+                    border: 2px solid $white;
+                    width: 30px;
+                    height: 30px;
+
+                    &-icon {
+                        fill: $white;
+                    }
+                }
+            }
+        }
+
+        &-link {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            font-weight: 700;
+            letter-spacing: 0.76px;
+        }
+    }
+
+    .tab-content {
+        padding-top: 2rem;
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            min-height: 600px;
+            padding-top: 3rem;
+        }
+    }
+
+    .tab-pane {
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            width: 40%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            padding-bottom: 3rem;
+        }
+
+        &__heading {
+            @include font-size($h2-font-size);
+            font-family: $font-ubuntu;
+            font-weight: 700;
+        }
+    }
+
+    .container > *:not(.tab-content),
+    .tab-pane {
+        position: relative;
+        z-index: 1;
+    }
+
+    .interactive-map {
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+            top: 100px;
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+            right: -35%;
+        }
+
+        @include media-breakpoint-between(xl, xxl) {
+            right: -30%;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            right: -25%;
+        }
+
+        @media (min-width: 1600px) {
+            right: -20%;
+        }
+
+        @media (min-width: 1800px) {
+            right: -15%;
+        }
+
+        @media (min-width: 2000px) {
+            right: -10%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            max-height: 400px;
+            height: 100%;
+        }
+
+        &__wrapper {
+            @include media-breakpoint-down(lg) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                max-height: 400px;
+                height: 100%;
+            }
+
+            svg {
+                @include media-breakpoint-down(lg) {
+                    width: 100%;
+                    height: auto;
+                    transform: scale(1.5);
+                    transform-origin: top;
+                }
+
+                @include media-breakpoint-down(md) {
+                    transform: scale(1.75);
+                }
+
+                @include media-breakpoint-down(sm) {
+                    transform: scale(1.9);
+                }
+
+                @media (max-width: 550px) {
+                    transform: scale(2);
+                }
+
+                @media (max-width: 500px) {
+                    transform: scale(2.1);
+                }
+
+                @media (max-width: 450px) {
+                    transform: scale(2.25);
+                }
+            } 
+    
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+        }
+    }
+}

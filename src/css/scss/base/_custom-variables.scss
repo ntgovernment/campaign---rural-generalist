@@ -1,0 +1,161 @@
+$prefix: bs-;
+
+/* -------- Bootstrap -------- */
+
+// Key Global bootstrap options
+$spacer: 1rem;
+
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer * 1,
+    4: $spacer * 1.5,
+    5: $spacer * 2,
+    6: $spacer * 2.5,
+    7: $spacer * 3,
+    8: $spacer * 5,
+    9: $spacer * 7.5,
+    10: $spacer * 10
+);
+
+$enable-dark-mode: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+$enable-grid-classes: true;
+$enable-container-classes: true;
+$enable-caret: true;
+$enable-button-pointers: true;
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: false;
+$enable-deprecation-messages: true;
+$enable-important-utilities: true;
+$enable-smooth-scroll: true;
+
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+  "32x9": calc(9 / 32 * 100%)
+);
+
+// Accordion
+$accordion-padding-y: 1rem;
+$accordion-padding-x: 1.5rem;
+$accordion-color: $body-color;
+$accordion-bg: $light;
+$accordion-border-width: 0;
+$accordion-border-radius: 0;
+$accordion-button-color: $body-color;
+$accordion-button-active-bg: none;
+$accordion-button-active-color: $body-color;
+$accordion-button-focus-border-color: transparent;
+$accordion-button-focus-box-shadow: none;
+$accordion-icon-width: 17px;
+$accordion-icon-color: $body-color;
+$accordion-icon-active-color: $body-color;
+$accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='448' height='512' viewBox='0 0 448 512'><path d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z' fill='#{$accordion-icon-color}' /></svg>");
+$accordion-button-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='448' height='512' viewBox='0 0 448 512'><path d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z' fill='#{$accordion-icon-active-color}' /></svg>");
+$accordion-icon-transform: rotate(180deg);
+
+// Breadcrumbs
+$breadcrumb-padding-y: 1rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-divider-color: inherit;
+$breadcrumb-active-color: inherit;
+
+// Buttons
+$btn-font-weight: 700;
+$btn-padding-y: 16px;
+$btn-padding-x: 32px;
+$btn-border-width: 2px;
+$btn-border-radius: 1000px;
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, padding .15s ease-in-out;
+
+$btn-padding-y-sm: 12px;
+$btn-padding-x-sm: 24px;
+$btn-border-radius-sm: 1000px;
+
+$btn-padding-y-lg: 20px;
+$btn-padding-x-lg: 40px;
+$btn-border-radius-lg: 1000px;
+
+// Cards
+$card-height: 100%;
+$card-color: $white;
+$card-bg: $primary;
+$card-cap-color: $card-color;
+$card-cap-bg: $card-bg;
+$card-border-width: 0;
+$card-border-radius: 0;
+
+// Close
+$btn-close-width: 30px;
+$btn-close-opacity: 1;
+
+// Form
+$input-padding-y: 0.5rem;
+$input-padding-x: 1rem;
+$input-bg: $light;
+$input-border-width: 0;
+$form-check-input-width: 1.263em;
+$form-check-input-bg: $light;
+$form-check-input-border: 1px solid $rg-dark-grey;
+$form-check-input-focus-border: 1px solid $rg-dark-grey;
+$form-check-input-focus-box-shadow: none;
+$form-check-input-checked-bg-color: $rg-orange;
+
+// Modal
+$modal-inner-padding: 3rem;
+$modal-content-color: $white;
+$modal-content-bg: $primary;
+$modal-content-border-width: 0;
+$modal-content-border-radius: 0;
+$modal-backdrop-bg: $white;
+
+// Pagination
+$pagination-color: $body-color;
+$pagination-bg: transparent;
+$pagination-border-radius: 0;
+$pagination-border-width: 2px;
+$pagination-border-color: transparent;
+$pagination-focus-bg: $pagination-bg;
+$pagination-hover-bg: $pagination-bg;
+$pagination-hover-border-color: $pagination-border-color;
+$pagination-active-color: $pagination-color;
+$pagination-active-bg: $pagination-bg;
+$pagination-active-border-color: $pagination-color;
+
+// Table
+$table-cell-padding-y: 0.75rem;
+$table-color: $body-color;
+$table-bg: $white;
+$table-th-font-weight: 700;
+$table-striped-bg: #F6F6F9;
+$table-border-color: transparent;
+$table-group-separator-color: $black;
+
+// Tooltips
+$tooltip-font-size: 0.7rem;
+
+/* -------- Custom -------- */
+  
+// These variables are required.
+$focus-ring-width:      .25rem;
+$focus-ring-opacity:    .25;
+$focus-ring-color:      rgba($ntg-heliconia-orange, $focus-ring-opacity);
+$focus-ring-blur:       0;
+$focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
+
+$focus-color: $ntg-heliconia-orange;
+$focus-width: 3px;
+$outline-offset-width: 2px;
+
+$letter-spacing: 1.33px;
+$text-shadow: 2px 2px 2px rgba($rg-dark-grey, 0.75);
+$text-underline-offset: 4px;

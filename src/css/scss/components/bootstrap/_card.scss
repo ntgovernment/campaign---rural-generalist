@@ -1,0 +1,143 @@
+.ntg-cards {
+    .pagination {
+        margin-top: 3rem;
+    }
+}
+
+.card {
+    $this: &;
+
+    &:has(:focus-visible) {
+        @include focus();
+
+        a {
+            i {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    &-img-top {
+        object-fit: cover;
+
+        @include media-breakpoint-down(md) {
+            max-height: 200px;
+        }
+    }
+    
+    .img-fluid {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    &-video {
+        .ratio {
+            &::after {
+                @extend .fa;
+                content: '\f144';
+                color: $white;
+                text-shadow: 2px 2px 2px rgba($black, 0.1);
+                @include font-size(80px);
+                font-weight: 400 !important;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: 0.2s color ease-in-out;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            .ratio {
+                &::after {
+                    color: $rg-orange;
+                }
+            }
+        }
+    }
+
+    &-title {
+        @include font-size($h4-font-size);
+
+        &:only-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-date {
+        font-size: $font-size-xs;
+    }
+
+    &-description {
+        font-size: $font-size-sm;
+        font-style: italic;
+    }
+
+    &-text {
+        font-size: $font-size-sm;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        overflow: hidden;
+    }
+
+    &-footer {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    a {
+        color: inherit;
+        font-size: $font-size-sm;
+        font-weight: 700;
+        text-decoration: none;
+        text-underline-offset: $text-underline-offset;
+
+        i {
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            transition: 0.2s ease-in-out;
+        }
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+
+            i {
+                margin-left: 1rem;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &-body {
+        a {
+            font-size: $h5-font-size;
+        }
+    }
+
+    button {
+        color: inherit;
+        background-color: transparent;
+        border: none;
+        font-size: $font-size-sm;
+        font-weight: 700;
+
+        i {
+            margin-right: 0.5rem;
+        }
+
+        &:hover {
+            text-decoration: underline;
+            text-underline-offset: $text-underline-offset;
+            text-decoration-thickness: 2px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.table {
+    thead {
+        th {
+            background-color: $rg-yellow;
+            font-size: $font-size-sm;
+            text-transform: uppercase;
+            vertical-align: middle;
+            padding: 0.5rem;
+        }
+    }
+}

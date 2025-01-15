@@ -1,0 +1,12 @@
+h2,
+h3 {
+    &:target {
+        display: inline-block;
+        @include focus();
+        scroll-margin-top: 3rem;
+    }
+}
+
+code {
+    color: $danger;
+}
